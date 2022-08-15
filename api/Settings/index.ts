@@ -1,9 +1,8 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-  context.log('HTTP trigger function processed a request.');
   context.res = {
-    // status: 200, /* Defaults to 200 */
+    headers: { 'Content-Type': 'application/json' },
     body: Object.keys(process.env)
       .filter(k => k.indexOf("spa_") === 0)
       .reduce((obj, key) => ({ ...obj, [key]: process.env[key] }), {})
