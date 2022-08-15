@@ -4,7 +4,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
   context.log('HTTP trigger function processed a request.');
   context.res = {
     // status: 200, /* Defaults to 200 */
-    body: "This is from the api YAY"
+    body: process.env
   };
   // const name = (req.query.name || (req.body && req.body.name));
   // const responseMessage = name
